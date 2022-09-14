@@ -34,13 +34,13 @@ def get_profession_by_title(title):  # Получает словарь с дан
     # return {}
 
 
-def check_fitness(student, profession):
-    student_dict = set(get_student_by_pk(student)["skills"])
-    profession_dict = set(get_profession_by_title(profession)["skills"])
+def check_fitness(student, profession): # получает словарь пригодности к профессии
+    student_set = set(student["skills"])
+    profession_set = set(profession["skills"])
 
-    has = student_dict.intersection(profession_dict)
-    lacks = profession_dict.difference(student_dict)
-    proc = int(100 * len(has) / len(profession_dict))
+    has = student_set.intersection(profession_set)
+    lacks = profession_set.difference(student_set)
+    proc = int(100 * len(has) / len(profession_set))
 
     result_dict = {
         "has": list(has),
