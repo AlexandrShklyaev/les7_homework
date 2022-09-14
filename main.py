@@ -27,8 +27,8 @@ if __name__ == '__main__':
     profession = utils.get_profession_by_title(prof_title)  # получим специальность по названию
     if profession != None:  # если нашли специальность
         data_stud_prof = utils.check_fitness(student, profession)  # получим данные пригодности
-        has = data_stud_prof["has"]  # умеет
-        lacks = data_stud_prof["lacks"]  # не умеет
+        has = ", ".join(data_stud_prof["has"])  # получаем нужные скилы студента и форматируем результат
+        lacks = ", ".join(data_stud_prof["lacks"])  # получаем отсутствующие скилы и форматируем результат
         fit_percent = data_stud_prof["fit_percent"]  # процент пригодности
         print(f"Пригодность {fit_percent}%\n{full_name} знает {has}\n{full_name} не знает {lacks}")
     else:
